@@ -1,0 +1,22 @@
+CREATE TABLE `leads` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`companyName` varchar(255) NOT NULL,
+	`url` varchar(512) NOT NULL,
+	`country` varchar(64),
+	`focus` varchar(128),
+	`statusCode` varchar(32),
+	`emails` text,
+	`phones` text,
+	`contactPages` text,
+	`vendorPages` text,
+	`rfqPages` text,
+	`hasVendorPortal` int NOT NULL DEFAULT 0,
+	`hasRfqSystem` int NOT NULL DEFAULT 0,
+	`lastChecked` timestamp NOT NULL DEFAULT (now()),
+	`notes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `leads_id` PRIMARY KEY(`id`),
+	CONSTRAINT `leads_companyId_unique` UNIQUE(`companyId`)
+);

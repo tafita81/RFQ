@@ -1,0 +1,21 @@
+CREATE TABLE `opportunities` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`companyId` int NOT NULL,
+	`companyName` varchar(255) NOT NULL,
+	`sourceUrl` varchar(512) NOT NULL,
+	`title` varchar(512) NOT NULL,
+	`description` text,
+	`opportunityType` varchar(64),
+	`category` varchar(128),
+	`value` varchar(128),
+	`deadline` timestamp,
+	`publishedDate` timestamp NOT NULL,
+	`contactEmail` varchar(320),
+	`contactPhone` varchar(64),
+	`location` varchar(255),
+	`requirements` text,
+	`status` varchar(32) NOT NULL DEFAULT 'active',
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `opportunities_id` PRIMARY KEY(`id`)
+);
